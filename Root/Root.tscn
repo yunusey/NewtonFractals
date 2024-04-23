@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcsn2pwthgidi"]
+
+[ext_resource type="Shader" path="res://Root/Root.gdshader" id="1_i3kw1"]
+[ext_resource type="Script" path="res://Root/Root.gd" id="1_s604m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m1olc"]
+radius = 25.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nyjvi"]
+resource_local_to_scene = true
+shader = ExtResource("1_i3kw1")
+shader_parameter/color = Color(1, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_mun50"]
+size = Vector2(50, 50)
+
+[node name="Root" type="Area2D"]
+script = ExtResource("1_s604m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_m1olc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+material = SubResource("ShaderMaterial_nyjvi")
+mesh = SubResource("QuadMesh_mun50")
+
+[node name="ColorPicker" type="ColorPicker" parent="."]
+visible = false
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="color_changed" from="ColorPicker" to="." method="_on_color_picker_color_changed"]

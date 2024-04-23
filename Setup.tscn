@@ -1,0 +1,563 @@
+[gd_scene load_steps=7 format=3 uid="uid://cw04xlg3gy3nk"]
+
+[ext_resource type="PackedScene" uid="uid://yakl71ai3rkw" path="res://Fractal/Fractal.tscn" id="1_h52go"]
+[ext_resource type="PackedScene" uid="uid://bcsn2pwthgidi" path="res://Root/Root.tscn" id="1_r3iuo"]
+[ext_resource type="Script" path="res://Setup.gd" id="1_t45sx"]
+[ext_resource type="FontFile" uid="uid://cerm87xfi622a" path="res://Assets/Latin Modern.otf" id="3_hwe57"]
+[ext_resource type="Shader" path="res://Fractal/Fractal.gdshader" id="3_rwy0p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ty4gi"]
+resource_local_to_scene = true
+shader = ExtResource("3_rwy0p")
+shader_parameter/num_iterations = 20
+shader_parameter/scale = 1.0
+shader_parameter/num_roots = 3
+shader_parameter/roots = PackedVector2Array(1, 0, -0.5, 0.866, -0.5, -0.866)
+shader_parameter/root_colors = PackedColorArray(0.721569, 0.313726, 0.258824, 1, 0.905882, 0.909804, 0.819608, 1, 0.654902, 0.745098, 0.682353, 1)
+
+[node name="Setup" type="Node2D"]
+script = ExtResource("1_t45sx")
+
+[node name="Fractal" parent="." instance=ExtResource("1_h52go")]
+material = SubResource("ShaderMaterial_ty4gi")
+
+[node name="NumberLine" type="Node2D" parent="."]
+
+[node name="VerticalLine" type="Line2D" parent="NumberLine"]
+points = PackedVector2Array(540, 0, 540, 1080)
+default_color = Color(0.176471, 0.176471, 0.176471, 1)
+
+[node name="HorizontalLine" type="Line2D" parent="NumberLine"]
+points = PackedVector2Array(0, 540, 1080, 540)
+default_color = Color(0.176471, 0.176471, 0.176471, 1)
+
+[node name="Labels" type="Node2D" parent="NumberLine"]
+
+[node name="Vertical" type="Node2D" parent="NumberLine/Labels"]
+
+[node name="Neg5" type="Node2D" parent="NumberLine/Labels/Vertical"]
+position = Vector2(540, 1080)
+
+[node name="Line" type="Line2D" parent="NumberLine/Labels/Vertical/Neg5"]
+points = PackedVector2Array(-20, 0, 20, 0)
+
+[node name="Label" type="Label" parent="NumberLine/Labels/Vertical/Neg5"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -34.5
+offset_right = 83.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "-5i"
+
+[node name="Neg4" type="Node2D" parent="NumberLine/Labels/Vertical"]
+position = Vector2(540, 972)
+
+[node name="Line" type="Line2D" parent="NumberLine/Labels/Vertical/Neg4"]
+points = PackedVector2Array(-20, 0, 20, 0)
+
+[node name="Label" type="Label" parent="NumberLine/Labels/Vertical/Neg4"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -34.5
+offset_right = 83.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "-4i"
+
+[node name="Neg3" type="Node2D" parent="NumberLine/Labels/Vertical"]
+position = Vector2(540, 864)
+
+[node name="Line" type="Line2D" parent="NumberLine/Labels/Vertical/Neg3"]
+points = PackedVector2Array(-20, 0, 20, 0)
+
+[node name="Label" type="Label" parent="NumberLine/Labels/Vertical/Neg3"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -34.5
+offset_right = 83.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "-3i"
+
+[node name="Neg2" type="Node2D" parent="NumberLine/Labels/Vertical"]
+position = Vector2(540, 756)
+
+[node name="Line" type="Line2D" parent="NumberLine/Labels/Vertical/Neg2"]
+points = PackedVector2Array(-20, 0, 20, 0)
+
+[node name="Label" type="Label" parent="NumberLine/Labels/Vertical/Neg2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -34.5
+offset_right = 83.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "-2i"
+
+[node name="Neg1" type="Node2D" parent="NumberLine/Labels/Vertical"]
+position = Vector2(540, 648)
+
+[node name="Line" type="Line2D" parent="NumberLine/Labels/Vertical/Neg1"]
+points = PackedVector2Array(-20, 0, 20, 0)
+
+[node name="Label" type="Label" parent="NumberLine/Labels/Vertical/Neg1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -34.5
+offset_right = 83.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "-1i"
+
+[node name="NegPos0" type="Node2D" parent="NumberLine/Labels/Vertical"]
+position = Vector2(540, 540)
+
+[node name="Line" type="Line2D" parent="NumberLine/Labels/Vertical/NegPos0"]
+points = PackedVector2Array(-20, 0, 20, 0)
+
+[node name="Label" type="Label" parent="NumberLine/Labels/Vertical/NegPos0"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -34.5
+offset_right = 83.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "0i"
+
+[node name="Pos1" type="Node2D" parent="NumberLine/Labels/Vertical"]
+position = Vector2(540, 432)
+
+[node name="Line" type="Line2D" parent="NumberLine/Labels/Vertical/Pos1"]
+points = PackedVector2Array(-20, 0, 20, 0)
+
+[node name="Label" type="Label" parent="NumberLine/Labels/Vertical/Pos1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -34.5
+offset_right = 83.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "1i"
+
+[node name="Pos2" type="Node2D" parent="NumberLine/Labels/Vertical"]
+position = Vector2(540, 324)
+
+[node name="Line" type="Line2D" parent="NumberLine/Labels/Vertical/Pos2"]
+points = PackedVector2Array(-20, 0, 20, 0)
+
+[node name="Label" type="Label" parent="NumberLine/Labels/Vertical/Pos2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -34.5
+offset_right = 83.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "2i"
+
+[node name="Pos3" type="Node2D" parent="NumberLine/Labels/Vertical"]
+position = Vector2(540, 216)
+
+[node name="Line" type="Line2D" parent="NumberLine/Labels/Vertical/Pos3"]
+points = PackedVector2Array(-20, 0, 20, 0)
+
+[node name="Label" type="Label" parent="NumberLine/Labels/Vertical/Pos3"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -34.5
+offset_right = 83.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "3i"
+
+[node name="Pos4" type="Node2D" parent="NumberLine/Labels/Vertical"]
+position = Vector2(540, 108)
+
+[node name="Line" type="Line2D" parent="NumberLine/Labels/Vertical/Pos4"]
+points = PackedVector2Array(-20, 0, 20, 0)
+
+[node name="Label" type="Label" parent="NumberLine/Labels/Vertical/Pos4"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -34.5
+offset_right = 83.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "4i"
+
+[node name="Pos5" type="Node2D" parent="NumberLine/Labels/Vertical"]
+position = Vector2(540, 0)
+
+[node name="Line" type="Line2D" parent="NumberLine/Labels/Vertical/Pos5"]
+points = PackedVector2Array(-20, 0, 20, 0)
+
+[node name="Label" type="Label" parent="NumberLine/Labels/Vertical/Pos5"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -34.5
+offset_right = 83.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "5i"
+
+[node name="Horizontal" type="Node2D" parent="NumberLine/Labels"]
+
+[node name="Neg5" type="Node2D" parent="NumberLine/Labels/Horizontal"]
+position = Vector2(0, 540)
+
+[node name="Line" type="Line2D" parent="NumberLine/Labels/Horizontal/Neg5"]
+points = PackedVector2Array(0, -20, 0, 20)
+
+[node name="Label" type="Label" parent="NumberLine/Labels/Horizontal/Neg5"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.5
+offset_top = 12.0
+offset_right = 25.5
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "-5"
+
+[node name="Neg4" type="Node2D" parent="NumberLine/Labels/Horizontal"]
+position = Vector2(108, 540)
+
+[node name="Line" type="Line2D" parent="NumberLine/Labels/Horizontal/Neg4"]
+points = PackedVector2Array(0, -20, 0, 20)
+
+[node name="Label" type="Label" parent="NumberLine/Labels/Horizontal/Neg4"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.5
+offset_top = 8.0
+offset_right = 25.5
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "-4"
+
+[node name="Neg3" type="Node2D" parent="NumberLine/Labels/Horizontal"]
+position = Vector2(216, 540)
+
+[node name="Line" type="Line2D" parent="NumberLine/Labels/Horizontal/Neg3"]
+points = PackedVector2Array(0, -20, 0, 20)
+
+[node name="Label" type="Label" parent="NumberLine/Labels/Horizontal/Neg3"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.5
+offset_top = 15.0
+offset_right = 25.5
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "-3"
+
+[node name="Neg2" type="Node2D" parent="NumberLine/Labels/Horizontal"]
+position = Vector2(324, 540)
+
+[node name="Line" type="Line2D" parent="NumberLine/Labels/Horizontal/Neg2"]
+points = PackedVector2Array(0, -20, 0, 20)
+
+[node name="Label" type="Label" parent="NumberLine/Labels/Horizontal/Neg2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.5
+offset_top = 15.0
+offset_right = 25.5
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "-2"
+
+[node name="Neg1" type="Node2D" parent="NumberLine/Labels/Horizontal"]
+position = Vector2(432, 540)
+
+[node name="Line" type="Line2D" parent="NumberLine/Labels/Horizontal/Neg1"]
+points = PackedVector2Array(0, -20, 0, 20)
+
+[node name="Label" type="Label" parent="NumberLine/Labels/Horizontal/Neg1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.5
+offset_top = 15.0
+offset_right = 25.5
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "-1"
+
+[node name="NegPos0" type="Node2D" parent="NumberLine/Labels/Horizontal"]
+position = Vector2(540, 540)
+
+[node name="Line" type="Line2D" parent="NumberLine/Labels/Horizontal/NegPos0"]
+points = PackedVector2Array(0, -20, 0, 20)
+
+[node name="Label" type="Label" parent="NumberLine/Labels/Horizontal/NegPos0"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = 15.0
+offset_right = 15.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+
+[node name="Pos1" type="Node2D" parent="NumberLine/Labels/Horizontal"]
+position = Vector2(648, 540)
+
+[node name="Line" type="Line2D" parent="NumberLine/Labels/Horizontal/Pos1"]
+points = PackedVector2Array(0, -20, 0, 20)
+
+[node name="Label" type="Label" parent="NumberLine/Labels/Horizontal/Pos1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = 15.0
+offset_right = 15.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "1"
+
+[node name="Pos2" type="Node2D" parent="NumberLine/Labels/Horizontal"]
+position = Vector2(756, 540)
+
+[node name="Line" type="Line2D" parent="NumberLine/Labels/Horizontal/Pos2"]
+points = PackedVector2Array(0, -20, 0, 20)
+
+[node name="Label" type="Label" parent="NumberLine/Labels/Horizontal/Pos2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = 15.0
+offset_right = 15.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "2"
+
+[node name="Pos3" type="Node2D" parent="NumberLine/Labels/Horizontal"]
+position = Vector2(864, 540)
+
+[node name="Line" type="Line2D" parent="NumberLine/Labels/Horizontal/Pos3"]
+points = PackedVector2Array(0, -20, 0, 20)
+
+[node name="Label" type="Label" parent="NumberLine/Labels/Horizontal/Pos3"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = 15.0
+offset_right = 15.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "3"
+
+[node name="Pos4" type="Node2D" parent="NumberLine/Labels/Horizontal"]
+position = Vector2(972, 540)
+
+[node name="Line" type="Line2D" parent="NumberLine/Labels/Horizontal/Pos4"]
+points = PackedVector2Array(0, -20, 0, 20)
+
+[node name="Label" type="Label" parent="NumberLine/Labels/Horizontal/Pos4"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = 13.0
+offset_right = 15.0
+offset_bottom = 87.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "4"
+
+[node name="Pos5" type="Node2D" parent="NumberLine/Labels/Horizontal"]
+position = Vector2(1080, 540)
+
+[node name="Line" type="Line2D" parent="NumberLine/Labels/Horizontal/Pos5"]
+points = PackedVector2Array(0, -20, 0, 20)
+
+[node name="Label" type="Label" parent="NumberLine/Labels/Horizontal/Pos5"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = 15.0
+offset_right = 15.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "5"
+
+[node name="StartLabel" type="Label" parent="NumberLine/Labels"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = 1016.0
+offset_right = 591.0
+offset_bottom = 1075.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_hwe57")
+theme_override_font_sizes/font_size = 34
+text = "Press Enter to Start Journey"
+
+[node name="Roots" type="Node2D" parent="."]
+
+[node name="Root" parent="Roots" instance=ExtResource("1_r3iuo")]
+position = Vector2(648, 540)
+color = Color(0.721569, 0.313726, 0.258824, 1)
+
+[node name="Root2" parent="Roots" instance=ExtResource("1_r3iuo")]
+position = Vector2(486, 446.469)
+color = Color(0.905882, 0.909804, 0.819608, 1)
+
+[node name="Root3" parent="Roots" instance=ExtResource("1_r3iuo")]
+position = Vector2(486, 633.531)
+color = Color(0.654902, 0.745098, 0.682353, 1)
+
+[connection signal="color_changed" from="Roots/Root" to="." method="_on_root_color_changed"]
+[connection signal="drag_ended" from="Roots/Root" to="." method="_on_root_drag_ended"]
+[connection signal="drag_started" from="Roots/Root" to="." method="_on_root_drag_started"]
+[connection signal="color_changed" from="Roots/Root2" to="." method="_on_root_color_changed"]
+[connection signal="drag_ended" from="Roots/Root2" to="." method="_on_root_drag_ended"]
+[connection signal="drag_started" from="Roots/Root2" to="." method="_on_root_drag_started"]
+[connection signal="color_changed" from="Roots/Root3" to="." method="_on_root_color_changed"]
+[connection signal="drag_ended" from="Roots/Root3" to="." method="_on_root_drag_ended"]
+[connection signal="drag_started" from="Roots/Root3" to="." method="_on_root_drag_started"]
