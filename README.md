@@ -19,15 +19,15 @@ The plan I had was that the user was going to give me the roots, so that my $f(z
 $$
 f(z) = (z - z_0)(z - z_1)(z - z_2) \ldots (z - z_n)
 $$
-where $z_0, z_1, z_2, \ldots, z_n$ are the roots.
 
-and I was going to find a way to calculate $f(z)$ and $f'(z)$. So, I started thinking about how, until I realized the following formula:
+where $z_0, z_1, z_2, \ldots, z_n$ are the roots; and I was going to find a way to calculate $f(z)$ and $f'(z)$. So, I started thinking about how, until I realized the following formula:
 
 Let's use chain rule to find the derivative:
 
 $$
 f'(z) = \frac{d}{dz} (z - z_0)(z - z_1)(z - z_2) \ldots (z - z_n) 
 $$
+
 $$
 f'(z) = (z - z_1)(z - z_2) \ldots (z - z_n) + (z - z_0)\frac{d}{dz} (z - z_1)(z - z_2) \ldots (z - z_n)
 $$
@@ -53,6 +53,7 @@ The problem with this implementation is that division causes the result to be in
 $$
 \frac{f(z)}{f'(z)} = \frac{f(z)}{\sum_{k = 0}^{n} \frac{f(z)}{z - z_n}}
 $$
+
 $$
 \frac{f(z)}{f'(z)} = \frac{f(z)}{f(z) \sum_{k = 0}^{n} \frac{1}{z - z_n}} = \frac{1}{\sum_{k = 0}^{n} \frac{1}{z - z_n}}
 $$
@@ -60,6 +61,7 @@ $$
 Even though this simplification is so exciting, we, again, need to divide $1$ by $z - z_n$ for each $n$. So, the problem with accuracy in division will occur one more time.
 
 What now? Well, we will go back to less efficient but working method of calculating the derivative:
+
 $$
 f'(z) = (z - z_1)(z - z_2) \ldots (z - z_n) + (z - z_0)(z - z_2) \ldots (z - z_n) + \ldots
 $$
@@ -77,4 +79,4 @@ for (int i = 0; i < num_roots; i++) {
     derivative += term;
 }
 ```
-Eureka! We found a soulution that actually works even though we made the program's [Big $O$](https://en.wikipedia.org/wiki/Big_O_notation) jump from $O(n)$ to $O(n^2)$ (where $n$ is the number of roots), but it is fine--we restrict the number of roots to be less than $10$ in our program).
+Eureka! We found a soulution that actually works even though we made the program's [Big O](https://en.wikipedia.org/wiki/Big_O_notation) jump from $O(n)$ to $O(n^2)$ (where $n$ is the number of roots), but it is fine--we restrict the number of roots to be less than $10$ in our program).
