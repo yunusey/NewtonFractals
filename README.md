@@ -4,7 +4,7 @@
 First of all, I really like mathematics, and the first time I saw a fractal, I thought it was looking faboulous, but I never got the chance to actually dive into how to implement it (I thought you needed to be an expert in mathematics). However, after watching [3Blue1Brown](https://www.3blue1brown.com/)'s video on [Beyond the Mandelbrot set, an intro to holomorphic dynamics](https://www.youtube.com/watch?v=LqbZpur38nw), I thought I would look into that. So, here it is!
 
 ## Notes on Calculations
-_PS: There is a problem with MathJAX's rendering of summation (or my $LaTeX$ skills are not very good)._
+PS: There is a problem with MathJAX's rendering of summation (or my $LaTeX$ skills are not very good).
 
 Calculating the Newton fractals can be hard in Godot shaders. The main reason is that floats are not very accurate and can overflow easily. Let's take a look at how theory and reality differed (again...):
 
