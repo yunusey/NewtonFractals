@@ -51,11 +51,11 @@ for (int i = 0; i < num_roots; i++) {
 The problem with this implementation is that division causes the result to be inaccurate. In theory, there is no problem with this implementation--of course there is also a huge chance that I messed up on my calculations :D--(if we had computers with infinite float sizes, probably we would see that the result is just fine!), but the result is just **disappointing**. And just in case you would like to see what other simplifications we can make to the formula we just found, check this out: since we don't actually care about $f(z)$ or $f'(z)$, we can just focus on calculating the ratio ($\frac{f(z)}{f'(z)}$):
 
 $$
-\frac{f(z)}{f'(z)} = \frac{f(z)}{\sum_{k = 0}^{n} \frac{f(z)}{z - z_n}}
+\frac{f(z)}{f'(z)} = \frac{f(z)}{\sum_{k = 0}^{n}{\frac{f(z)}{z - z_n}}}
 $$
 
 $$
-\frac{f(z)}{f'(z)} = \frac{f(z)}{f(z) \sum_{k = 0}^{n} \frac{1}{z - z_n}} = \frac{1}{\sum_{k = 0}^{n} \frac{1}{z - z_n}}
+\frac{f(z)}{f'(z)} = \frac{f(z)}{f(z) \cdot \sum_{k = 0}^{n}{\frac{1}{z - z_n}}} = \frac{1}{\sum_{k = 0}^{n}{\frac{1}{z - z_n}}}
 $$
 
 Even though this simplification is so exciting, we, again, need to divide $1$ by $z - z_n$ for each $n$. So, the problem with accuracy in division will occur one more time.
