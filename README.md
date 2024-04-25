@@ -1,10 +1,27 @@
 # Newton Fractals
 
+<div align="center" border-radius="20px">
+    <img src="./icon.png" width="200" height="200" />
+</div>
+
 ## Introduction
 First of all, I really like mathematics, and the first time I saw a fractal, I thought it was looking faboulous, but I never got the chance to actually dive into how to implement it (I thought you needed to be an expert in mathematics). However, after watching [3Blue1Brown](https://www.3blue1brown.com/)'s video on [Beyond the Mandelbrot set, an intro to holomorphic dynamics](https://www.youtube.com/watch?v=LqbZpur38nw), I thought I would look into that. So, here it is!
 
+## Download
+So, you want to try it out? I am so happy to hear that! Just open your terminal and run:
+```bash
+git clone https://github.com/yunusey/NewtonFractals # clone the repository
+```
+Now, you can import the project to Godot and play with it yourself.
+
+## Web version?
+The web version is not available yet. Once it is available, you can find the link here.
+
+## How to use
+Once you run the program, you will see a basic number line that will help you to put where exactly you want to put the roots into. To add a root, navigate your mouse to where you want to add the root then press `right-mouse-button`. To change the position of the roots, you can drag the roots using `left-mouse-button`. To change the colors of the roots, press `A` while hovering over the root. To delete a root, press `X` while hovering over it. Use your `scroll-wheel` to increase/decrease number of iterations (the precision of the animation)--both low precision and high precision have their own beautiful features so make sure to do that. To start the simulation, simply press `Enter`. You still can change the number of iterations when you start the animation, but you cannot add any roots or change colors. To take a screenshot, you can use `S` and it will save the screenshot into `user://newton-fractal-screenshot.png`. You can learn more about the [file paths in Godot here](https://docs.godotengine.org/en/stable/tutorials/io/data_paths.html).
+
 ## Notes on Calculations
-PS: There is a problem with MathJAX's rendering of summation (or my $LaTeX$ skills are not very good).
+PS: There is a problem with MathJAX's rendering of $\sum$ when they are used in fractions. This is why this expression $\frac{1}{\sum_{k = 0}^{n}}$ and the ones you will see below look weird.
 
 Calculating the Newton fractals can be hard in Godot shaders. The main reason is that floats are not very accurate and can overflow easily. Let's take a look at how theory and reality differed (again...):
 

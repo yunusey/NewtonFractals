@@ -3,6 +3,7 @@ extends Area2D
 signal color_changed
 signal drag_started
 signal drag_ended
+signal root_deleted(Node2D)
 
 @export_color_no_alpha var color = Color(1.0, 0.0, 0.0)
 var is_dragging = false
@@ -35,6 +36,8 @@ func _input(event: InputEvent):
 		$ColorPicker.show()
 	if event is InputEventKey and event.keycode == KEY_ESCAPE and $ColorPicker.visible:
 		$ColorPicker.hide()
+	if event is InputEventKey and event.keycode == KEY_X and is_hovering:
+		emit_signal("root_deleted", self)
 
 func _on_color_picker_color_changed(new_color: Color):
 	$MeshInstance2D.material.set_shader_parameter("color", new_color)

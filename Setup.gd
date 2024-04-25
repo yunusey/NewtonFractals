@@ -26,8 +26,12 @@ func _input(event: InputEvent) -> void:
 		$Fractal.animation_running = true
 		$NumberLine.hide()
 		$Roots.hide()
-	
-	if event.is_pressed() and event is InputEventMouseButton:
+	elif event.is_action_released("take_screenshot"):
+		var image = get_viewport().get_texture().get_image()
+		image.save_png("user://newton-fractal-screenshot.png")
+		var path = ProjectSettings.globalize_path("user://newton-fractal-screenshot.png")
+		OS.shell_show_in_file_manager(path)
+	elif event.is_pressed() and event is InputEventMouseButton:
 		match event.button_index:
 			MOUSE_BUTTON_RIGHT:
 				if $Fractal.animation_running:
@@ -39,6 +43,7 @@ func _input(event: InputEvent) -> void:
 				root.connect("color_changed", _on_root_color_changed)
 				root.connect("drag_started", _on_root_drag_started)
 				root.connect("drag_ended", _on_root_drag_ended)
+				root.connect("root_deleted", _on_root_deleted)
 				$Roots.add_child(root)
 				update_roots()
 				update_root_colors()
@@ -55,3 +60,9 @@ func _on_root_drag_started():
 
 func _on_root_drag_ended():
 	is_dragging = false
+
+func _on_root_deleted(root: Node2D):
+	$Roots.remove_child(root)
+	root.queue_free()
+	update_roots()
+	update_root_colors()
